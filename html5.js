@@ -29,8 +29,8 @@ function html5 () {
     }
 
     this.hitch = function (func,newThis) { // Same idea of dojo.lang.hitch
-	return function (arg) {
-	    func.apply(newThis,[arg]);
+	return function () {
+	    func.apply(newThis,arguments);
 	}
     }
 
@@ -70,7 +70,7 @@ function html5 () {
 	else {// code for IE6, IE5
 	    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
 	}
-	xmlhttp.open("GET","ajax_test.asp",false);
+	xmlhttp.open("GET",url,false);
 	xmlhttp.send();
 	
 	return xmlhttp.responseText;
